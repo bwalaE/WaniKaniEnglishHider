@@ -25,6 +25,7 @@ $(document).ready( async function(){
                 } else {
                     //alert("class E")
                     hideEnglish()
+                    hideDefinition()
                     break
                 }
             }
@@ -47,6 +48,17 @@ $(document).ready( async function(){
             $(this).hide()
         });
     }
+
+    function hideDefinition() {
+        $("div.character-header__meaning").hide()
+        $("div.character-header__characters").append("<div class='visibleD' style='background-color:white;color:#9F00EF;font-size:0.3em'>[Click to reveal]</div>")
+
+        $("div.visibleD").click(function() {
+            $(this).parent().next().show()
+            $(this).hide()
+        });
+    }
+
     function hideEnglishReload() {
         //alert("hello") // this runs
         $("div.context-sentences p.wk-text[lang!='ja']").hide()
